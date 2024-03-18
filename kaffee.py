@@ -25,7 +25,7 @@ def error(msg: str) -> None:
 def success(msg: str) -> None:
     print(Fore.GREEN + msg + Style.RESET_ALL)
 
-print("Use command help to get list of all possible commands")
+print("Use command 'help' to get list of all possible commands")
 
 def process(msg):
     parts = msg.split(" ")
@@ -48,6 +48,8 @@ def process(msg):
                 if "-ns" in parts:
                     formatting = "%H:%M"
                 print("Current time is ", strftime(formatting,localtime()))
+    else:
+        error(f"{cmd} is not a command. Use 'help' to get a list of all possible commands.")
             
 
 while True:
